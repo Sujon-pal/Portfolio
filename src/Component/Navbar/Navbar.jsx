@@ -1,98 +1,77 @@
 import { NavLink } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { FaSun, FaMoon } from "react-icons/fa";
 
 const Navbar = () => {
-  const [theme, setTheme] = useState("light");
-
-  // Apply theme to html tag
-  useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === "light" ? "dark" : "light"));
-  };
-
   const navLinks = (
-    <>
+    < >
       <li>
-        <NavLink to="/" className="hover:text-yellow-400">
-          Home
-        </NavLink>
+        <NavLink to="/" className={({ isActive }) =>
+          ` transition-colors duration-200 ${isActive ? "text-amber-700" : "text-gray-800 hover:text-amber-700"}`
+        }>Home</NavLink>
       </li>
       <li>
-        <NavLink to="/services" className="hover:text-yellow-400">
-          About
-        </NavLink>
+        <NavLink to="/about" className={({ isActive }) =>
+          ` transition-colors duration-200 ${isActive ? "text-amber-700" : "text-gray-800 hover:text-amber-700"}`
+        }>About</NavLink>
       </li>
       <li>
-        <NavLink to="/about" className="hover:text-yellow-400">
-          Projects
-        </NavLink>
+        <NavLink to="/skills" className={({ isActive }) =>
+          ` transition-colors duration-200 ${isActive ? "text-amber-700" : "text-gray-800 hover:text-amber-700"}`
+        }>Skills</NavLink>
       </li>
       <li>
-        <NavLink to="/projects" className="hover:text-yellow-400">
-          Contact
-        </NavLink>
+        <NavLink to="/Projects" className={({ isActive }) =>
+          ` transition-colors duration-200 ${isActive ? "text-amber-700" : "text-gray-800 hover:text-amber-700"}`
+        }>Projects</NavLink>
+      </li>
+      <li>
+        <NavLink to="/Contact" className={({ isActive }) =>
+          ` transition-colors duration-200 ${isActive ? "text-amber-700" : "text-gray-800 hover:text-amber-700"}`
+        }>Contact</NavLink>
       </li>
     </>
   );
 
   return (
-    <div className="w-full flex justify-center mt-4">
-      <div className="navbar bg-blue-600 dark:bg-gray-900 text-white rounded-full px-6 shadow-lg max-w-6xl">
+    <nav className="w-full bg-white/30 backdrop-blur-sm z-50 border border-amber-400 rounded-3xl  ">
+      <div className="px-8 flex items-center justify-between h-14 font-bold" >
 
-        {/* LOGO */}
-        <div className="navbar-start">
-          <div className="bg-yellow-400 text-black font-bold px-4 py-1 rounded-full">
-            Olivia.
-          </div>
-        </div>
+        {/* Logo */}
+        <NavLink to="/" className="text-2xl font-bold text-amber-700">Sujon</NavLink>
 
-        {/* MENU (DESKTOP) */}
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal gap-3 font-medium">
-            {navLinks}
-          </ul>
-        </div>
+        {/* Desktop Nav Links */}
+        <ul className="hidden lg:flex items-center gap-8 list-none m-0 p-0">
+          {navLinks}
+        </ul>
 
-        {/* DARK MODE TOGGLE */}
-        <div className="navbar-end">
-          <button
-            onClick={toggleTheme}
-            className="flex items-center gap-2 px-3 py-2 rounded-full hover:bg-black/20 dark:hover:bg-white/20 transition"
+        {/* Contact Button */}
+        <div className="hidden lg:block">
+          <NavLink
+            to="/contact"
+            className="bg-amber-800 hover:bg-amber-900 text-white font-semibold px-6 py-2.5 rounded-full transition-all duration-300"
           >
-            {theme === "dark" ? (
-              <>
-                <FaSun />
-                <span>Light</span>
-              </>
-            ) : (
-              <>
-                <FaMoon />
-                <span>Dark</span>
-              </>
-            )}
-          </button>
+            Contact
+          </NavLink>
         </div>
 
-        {/* MOBILE MENU */}
-        <div className="dropdown lg:hidden ml-2">
-          <div tabIndex={0} role="button" className="btn btn-ghost text-white">
-            ☰
+        {/* Mobile Hamburger */}
+        <div className="lg:hidden dropdown dropdown-end">
+          <div tabIndex={0} role="button" className="btn btn-ghost btn-sm text-amber-900">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+            </svg>
           </div>
-          <ul className="menu dropdown-content mt-3 p-3 shadow bg-gray-800 text-white rounded-box w-52">
+          <ul tabIndex={0} className="menu menu-sm dropdown-content bg-amber-50 rounded-box z-10 mt-3 w-52 p-2 shadow border border-amber-200 list-none">
             {navLinks}
+            <li className="mt-2">
+              <NavLink to="/contact" className="bg-amber-800 text-white rounded-full text-center font-semibold">
+                Contact
+              </NavLink>
+            </li>
           </ul>
         </div>
 
       </div>
-    </div>
+    </nav>
   );
 };
 
