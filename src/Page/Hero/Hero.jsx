@@ -1,86 +1,68 @@
-import img from "../../assets/WhatsApp Image 2026-04-29 at 11.22.55 PM.jpeg"
+import { FaArrowRight } from "react-icons/fa";
+import { ReactTyped } from "react-typed";
+import img from "../../assets/WhatsApp Image 2026-04-29 at 11.22.55 PM.jpeg";
+import "./Hero.css"
 
 const Hero = () => {
+  const handleAboutClick = () => {
+    document.getElementById("about_modal").showModal();
+  };
+
   return (
-    <div className="min-h-screen  ">
-      <div className="w-11/12 mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-10 py-16">
+    <div className="min-h-[70vh] md:min-h-screen ">
+      <div className="w-11/12 mx-auto flex flex-col md:flex-row items-center justify-between gap-10 md:py-16 py-10">
         {/* Left - Image */}
         <div className="flex-1 flex justify-center">
-          <div className="w-72 h-72 md:w-[420px] md:h-[420px] rounded-full border-[6px] border-amber-800/25 overflow-hidden shadow-xl">
-            <img
-              src={img}
-              alt="Amelia"
-              className="w-full h-full object-cover"
-            />
+          <div className="w-64 h-64 md:w-105 md:h-105 rounded-full border-[6px] border-blue-600/25 overflow-hidden shadow-xl">
+            <img src={img} alt="Sujon" className="w-full h-full object-cover" />
           </div>
         </div>
 
         {/* Right - Content */}
-        <div className="flex-1 space-y-5">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-            Hey I'm <span className="text-amber-700">Sujon</span>
+        <div className="flex-1 space-y-5 text-center md:text-left">
+          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight">
+            Hey I'm <span className="text-blue-600">Sujon</span>
           </h1>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-            I'm a <span className="text-amber-700">Developer</span>
+          <h2 className="text-2xl md:text-4xl font-bold text-gray-900">
+            I'm a{" "}
+            <span className="text-blue-600">
+              <ReactTyped
+                strings={["Frontend Developer", "React Developer"]}
+                typeSpeed={70}
+                backSpeed={40}
+                loop
+              />
+            </span>
           </h2>
-          <p className="text-gray-600 text-base leading-relaxed max-w-lg">
+          Portfolio websit
+          <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-lg mx-auto md:mx-0">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit
             quasi commodi quia rerum, iste corporis expedita in excepturi
             nesciunt repellendus quisquam amet provident ad mollitia debitis
             odit voluptatem necessitatibus tempora.
           </p>
+          {/* Buttons */}
+          <div className="flex justify-center gap-10 md:justify-start">
+            <button
+              onClick={handleAboutClick}
+              className="bg-linear-to-r from-blue-500 to-indigo-700 hover:from-blue-700 hover:to-indigo-700
+  text-white font-semibold px-5 py-3 md:px-10 md:py-4  rounded-lg flex items-center gap-2
+  transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl"
+            >
+              About Me
+              <FaArrowRight />
+            </button>
 
-          {/* Social Icons */}
-          <div className="flex gap-4">
-            {[
-              {
-                href: "#",
-                icon: (
-                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.63-5.37-12-12-12z" />
-                ),
-              },
-              {
-                href: "#",
-                icon: (
-                  <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z" />
-                ),
-              },
-              {
-                href: "#",
-                icon: (
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                ),
-              },
-              {
-                href: "#",
-                icon: (
-                  <path d="M23.953 4.57a10 10 0 0 1-2.825.775 4.958 4.958 0 0 0 2.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 0 0-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 0 0-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 0 1-2.228-.616v.06a4.923 4.923 0 0 0 3.946 4.827 4.996 4.996 0 0 1-2.212.085 4.936 4.936 0 0 0 4.604 3.417 9.867 9.867 0 0 1-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 0 0 7.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0 0 24 4.59z" />
-                ),
-              },
-            ].map((social, i) => (
-              <a
-                key={i}
-                href={social.href}
-                className="w-12 h-12 rounded-full border-2 border-amber-800 flex items-center justify-center text-amber-900 hover:bg-amber-800 hover:text-white transition-all duration-300"
-              >
-                <svg
-                  className="w-5 h-5"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  {social.icon}
-                </svg>
-              </a>
-            ))}
+            <button
+              className="bg-linear-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700
+  text-white font-semibold px-5 py-3 md:px-10 md:py-4 rounded-lg
+  transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl"
+            >
+              Download CV
+            </button>
           </div>
-
-          {/* Download CV Button */}
-          <button className="bg-amber-800 hover:bg-amber-900 text-white font-semibold px-10 py-4 rounded-lg transition-all duration-300 text-base w-full max-w-xs">
-            Download CV
-          </button>
         </div>
       </div>
-      
     </div>
   );
 };

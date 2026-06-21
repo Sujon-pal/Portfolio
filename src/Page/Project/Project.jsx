@@ -29,19 +29,20 @@ const projects = [
 
 const Project = () => {
   return (
-    <section className="py-20 ">
+    <section className="mt-7 ">
       <div className="w-11/12 max-w-7xl mx-auto">
         {/* Heading */}
         <div className="text-center mb-14">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-            My <span className="text-amber-700">Projects</span>
+            My Latest <span className="text-blue-600">Projects</span>
           </h2>
 
-          <div className="w-20 h-1 bg-amber-700 rounded-full mx-auto mt-4"></div>
+          <div className="w-20 h-1 bg-blue-600 rounded-full mx-auto mt-4"></div>
 
-          <p className="mt-4 text-gray-500 max-w-2xl mx-auto">
-            Here are some of my featured projects showcasing my skills in
-            frontend and full-stack web development.
+          <p className="mt-4 text-gray-700 max-w-3xl mx-auto">
+            A curated collection of projects highlighting my focus on modern UI
+            design, responsiveness, and smooth user experience in web
+            development.
           </p>
         </div>
 
@@ -50,7 +51,7 @@ const Project = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
+              className="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-400"
             >
               {/* Project Image */}
               <div className="overflow-hidden h-56">
@@ -68,7 +69,7 @@ const Project = () => {
                   {project.tags.map((tag, i) => (
                     <span
                       key={i}
-                      className="bg-amber-100 text-amber-700 text-xs font-medium px-3 py-1 rounded-full"
+                      className="bg-gray-100 text-blue-600 text-xs font-medium px-3 py-1 rounded-full"
                     >
                       {tag}
                     </span>
@@ -81,26 +82,28 @@ const Project = () => {
                 </h3>
 
                 {/* Description */}
-                <p className="text-gray-500 text-sm leading-relaxed mb-5">
+                <p className="text-gray-700 text-sm leading-relaxed mb-5">
                   {project.desc}
                 </p>
 
                 {/* Buttons */}
                 <div className="flex gap-3">
+                  {/* Live Demo */}
                   <a
                     href={project.live}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex-1 text-center bg-amber-700 hover:bg-amber-800 text-white py-2.5 rounded-lg font-medium transition"
+                    className="flex-1 text-center text-white py-2.5 rounded-lg font-medium bg-linear-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-800 transition-all duration-300  shadow-md hover:shadow-xl transform hover:-translate-y-0.5"
                   >
                     Live Demo
                   </a>
 
+                  {/* GitHub */}
                   <a
                     href={project.code}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex-1 text-center border border-amber-700 text-amber-700 hover:bg-amber-50 py-2.5 rounded-lg font-medium transition"
+                    className="flex-1 text-center py-2.5 rounded-lg font-medium  border border-gray-300 text-gray-700  hover:bg-gray-900 hover:text-white  transition-all duration-300  shadow-sm hover:shadow-lg transform hover:-translate-y-0.5"
                   >
                     GitHub
                   </a>

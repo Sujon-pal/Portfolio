@@ -1,16 +1,24 @@
-/** @type {import('tailwindcss').Config} */
 export default {
   darkMode: "class",
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {
-      colors: {
-        primary: "#3B82F6", // blue
-        dark: "#0F172A", // navy dark
-        light: "#F8FAFC", // soft white
-        accent: "#22C55E", // green highlight
+   // tailwind.config.js
+
+extend: {
+  keyframes: {
+    float: {
+      '0%, 100%': {
+        transform: 'translateY(0px)',
+      },
+      '50%': {
+        transform: 'translateY(-20px)',
       },
     },
+  },
+  animation: {
+    float: 'float 4s ease-in-out infinite',
+  },
+},
   },
   plugins: [],
 };
