@@ -47,13 +47,15 @@ const Contact = () => {
   };
 
   return (
-    <section className="md:mt-7 mt-4">
+    <section className="md:mt-18 mt-4">
       <div className="w-11/12 mx-auto">
 
         {/* Title */}
         <div className="text-center mb-14">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-            Let's <span className="text-blue-600">connect</span>
+            Let's   <span className="bg-linear-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+              connect
+            </span>
           </h2>
           <div className="w-20 h-1 bg-blue-600 rounded-full mx-auto mt-4"></div>
         </div>

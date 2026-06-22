@@ -27,13 +27,15 @@ const skills = [
 
 const Skills = () => {
   return (
-    <section className="md:mt-7 mt-4 ">
+    <section className="md:mt-18 mt-4 ">
       <div className="w-11/12  mx-auto ">
 
         {/* Heading */}
         <div className="text-center mb-14">
           <h2 className="text-4xl font-bold text-gray-900">
-            Technical <span className="text-blue-600">Skills</span>
+            Technical   <span className="bg-linear-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+              Skills
+            </span>
           </h2>
 
           <div className="w-20 h-1 bg-blue-600 rounded-full mx-auto mt-3"></div>

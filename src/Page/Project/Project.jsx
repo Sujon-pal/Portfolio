@@ -1,3 +1,6 @@
+import { FiExternalLink } from "react-icons/fi";
+import { FaGithub } from "react-icons/fa";
+
 const projects = [
   {
     image: "https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=1000",
@@ -34,12 +37,15 @@ const Project = () => {
         {/* Heading */}
         <div className="text-center mb-14">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-            My Latest <span className="text-blue-600">Projects</span>
+            My Latest{" "}
+            <span className="bg-linear-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+              Projects
+            </span>
           </h2>
 
           <div className="w-20 h-1 bg-blue-600 rounded-full mx-auto mt-4"></div>
 
-          <p className="mt-4 text-gray-700 max-w-3xl mx-auto">
+          <p className="mt-4 text-gray-700 max-w-2xl mx-auto">
             A curated collection of projects highlighting my focus on modern UI
             design, responsiveness, and smooth user experience in web
             development.
@@ -51,14 +57,18 @@ const Project = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-400"
+              className="group relative rounded-3xl overflow-hidden bg-white/70 backdrop-blur-xl border border-white shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"
             >
+              {/* Glow */}
+              {/* <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500">
+                <div className="absolute inset-0 bg-linear-to-r from-blue-500/20 via-indigo-500/20 to-cyan-500/20 blur-2xl"></div>
+              </div> */}
               {/* Project Image */}
               <div className="overflow-hidden h-56">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
 
@@ -69,7 +79,7 @@ const Project = () => {
                   {project.tags.map((tag, i) => (
                     <span
                       key={i}
-                      className="bg-gray-100 text-blue-600 text-xs font-medium px-3 py-1 rounded-full"
+                      className="bg-gray-200 text-blue-600 text-xs font-medium px-3 py-1 rounded-full"
                     >
                       {tag}
                     </span>
@@ -77,7 +87,7 @@ const Project = () => {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-bold text-gray-800 mb-3">
+                <h3 className="text-2xl font-bold text-gray-800 mb-3 group-hover:text-blue-600 transition">
                   {project.title}
                 </h3>
 
@@ -89,24 +99,26 @@ const Project = () => {
                 {/* Buttons */}
                 <div className="flex gap-3">
                   {/* Live Demo */}
-                  <a
+                  <button
                     href={project.live}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex-1 text-center text-white py-2.5 rounded-lg font-medium bg-linear-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-800 transition-all duration-300  shadow-md hover:shadow-xl transform hover:-translate-y-0.5"
+                    className="flex-1 flex items-center justify-center gap-2 text-white py-2.5 rounded-lg font-medium bg-linear-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-800 transition-all duration-300 shadow-md hover:shadow-xl transform hover:-translate-y-0.5 cursor-pointer"
                   >
+                    <FiExternalLink className="text-lg" />
                     Live Demo
-                  </a>
+                  </button>
 
                   {/* GitHub */}
-                  <a
+                  <button
                     href={project.code}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex-1 text-center py-2.5 rounded-lg font-medium  border border-gray-300 text-gray-700  hover:bg-gray-900 hover:text-white  transition-all duration-300  shadow-sm hover:shadow-lg transform hover:-translate-y-0.5"
+                    className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg font-medium border border-gray-300 text-gray-700 hover:bg-gray-900 hover:text-white transition-all duration-300 shadow-sm hover:shadow-lg transform hover:-translate-y-0.5 "
                   >
+                    <FaGithub className="text-lg" />
                     GitHub
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
