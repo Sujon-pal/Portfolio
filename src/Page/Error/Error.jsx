@@ -3,7 +3,7 @@ import { FaHome, FaExclamationTriangle } from "react-icons/fa";
 
 const Error = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-slate-50 via-blue-50 to-cyan-50 px-4">
       <div className="text-center max-w-2xl">
         {/* Icon */}
         <div className="flex justify-center mb-6">
@@ -13,7 +13,7 @@ const Error = () => {
         </div>
 
         {/* 404 */}
-        <h1 className="text-8xl md:text-9xl font-extrabold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+        <h1 className="text-8xl md:text-9xl font-extrabold bg-linear-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
           404
         </h1>
 
@@ -32,7 +32,7 @@ const Error = () => {
         <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             to="/"
-            className="px-8 py-3 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold shadow-lg hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+            className="px-8 py-3 rounded-full bg-linear-to-r from-blue-600 to-cyan-500 text-white font-semibold shadow-lg hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
           >
             <FaHome />
             Back To Home
